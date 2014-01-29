@@ -29,7 +29,7 @@ To pull this repo from the command line
 
 + cd to a directory on your machine that will contain your working copy
 + execute the git clone command, like so:  
-$ git clone https://yourbitbucketusername@bitbucket.org/cs673/healthcare.git
+$ git clone https://yourbitbucketusername@bitbucket.org/farrellc/healthcare.git
 
 ###Conventions for git
 We should discuss these, of course, but I wanted to get some initial thoughts out there.

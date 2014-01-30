@@ -45,11 +45,14 @@ Please commit small changes, frequently, with clear and concise messages.
 + [wikipedia says it well](http://en.wikipedia.org/wiki/Atomic_commit#Atomic_Commit_Convention)
 
 **Commit messages**  
-Please format your commit messages with a declarative statement that completes the sentence "This commit ..."
+Please format your commit messages with a declarative statement that completes the sentence "This commit ..." and includes the PivotalTracker ticket number in square brackets.
 
-+ for example, I will check in the changes I am making now like this: $ git push -m "adds git conventions to the README"
++ for example, I will check in the changes I am making now like this: $ git push -m "adds git conventions to the README [74621]"
 
 **gitignore**  
 We will need to add to the .gitignore file as we go.
 
 + [here are a few examples](http://www.sujee.net/tech/articles/gitignore/)
+
+###Integration with PivotalTracker
+I found this [post](http://www.42.mach7x.com/2013/07/22/integrating-bitbucket-with-pivotaltracker/), it describes how-to integrate this BitBucket repo with PivotalTracker.

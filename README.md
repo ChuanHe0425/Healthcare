@@ -47,7 +47,7 @@ Please commit small changes, frequently, with clear and concise messages.
 **Commit messages**  
 Please format your commit messages with a declarative statement that completes the sentence "This commit ..." and includes the PivotalTracker ticket number in square brackets.
 
-+ for example, I will check in the changes I am making now like this: $ git push -m "adds git conventions to the README [#74621]"
++ for example, I will check in the changes I am making now like this: $ git push -m "<span>[#74621]<span> adds git conventions to the readme"
 
 **gitignore**  
 We will need to add to the .gitignore file as we go.

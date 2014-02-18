@@ -1,4 +1,6 @@
 ## generic files to ignore
+.vagrant/
+roncare.org/WEB-INF/classes/
 *~
 *.lock
 *.DS_Store

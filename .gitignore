@@ -2,6 +2,7 @@
 .vagrant/
 roncare.org/WEB-INF/classes/
 *~
+*.classpath
 *.lock
 *.DS_Store
 *.swp

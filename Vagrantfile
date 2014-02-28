@@ -9,6 +9,9 @@ Vagrant.configure("2") do |config|
   ## Setup roncare.org in the webapps folder
   config.vm.synced_folder "roncare.org/", "/var/lib/tomcat7/webapps/roncare.org/"
   
+  ## Setup roncare.org in the webapps folder
+  config.vm.synced_folder "sql/", "/srv/sql/"
+
   ## Set Host only access address
   config.vm.network :private_network, ip: "10.9.8.7"
   

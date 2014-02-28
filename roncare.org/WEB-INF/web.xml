@@ -13,5 +13,10 @@
     <servlet-name>Hello</servlet-name>
     <servlet-class>org.roncare.webapp.Hello</servlet-class>
   </servlet>
+  
+  <servlet>
+    <servlet-name>DatabaseAdmin</servlet-name>
+    <servlet-class>org.roncare.webapp.DatabaseAdmin</servlet-class>
+  </servlet>
 
 </web-app>

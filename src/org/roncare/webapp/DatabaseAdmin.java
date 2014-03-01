@@ -66,6 +66,7 @@ public class DatabaseAdmin extends HttpServlet {
 
 		String SQL_PATH = "/srv/sql/";
 		String SQL_CUSTOMER = "TBLCustomer.sql";
+		String SQL_GENDER = "TBLGender.sql";
 		String SQL_DCC = "TBLDentalCareCoverage.sql";
 		String SQL_ES = "TBLEmploymentStatus.sql";
 		String SQL_HCC = "TBLHealthCareCoverage.sql";
@@ -139,6 +140,8 @@ public class DatabaseAdmin extends HttpServlet {
 	        	ret = executeSqlFile(SQL_PATH + SQL_RACE,conn);
 	        	out.write(ret);
 	        	ret = executeSqlFile(SQL_PATH + SQL_SZ,conn);
+	        	out.write(ret);
+	        	ret = executeSqlFile(SQL_PATH + SQL_GENDER,conn);
 	        	out.write(ret);
 	        	ret = executeSqlFile(SQL_PATH + SQL_CUSTOMER,conn);
 	        	out.write(ret);

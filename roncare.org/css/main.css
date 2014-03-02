@@ -1,3 +1,48 @@
-body {
-    background-color: gray;
+body,
+html {
+margin:0;
+padding:0;
+color:#000;
+background:#a7a09a;
+}
+#page {
+width:795px;
+margin:0 auto;
+background:#cc9;
+}
+#header {
+padding-top:2px;
+padding-bottom:2px;
+padding-left:15px;
+background:#ddd;
+}
+#column1 {
+float:left;
+width:200px;
+height:565px;
+padding-left:10px;
+background:#9c9;
+}
+#column2 {
+float:right;
+width:550px;
+height:550px;
+padding-left:15px;
+padding-top:15px;
+padding-right:15px;
+background:#cc9;
+}
+#footer {
+background:#99c;
+clear:both;
+text-align:center;
+}
+#txtarea {
+display:block;
+width:99%;
+padding:0.5%;
+margin:0;
+}
+.error {
+color:red;	
 }

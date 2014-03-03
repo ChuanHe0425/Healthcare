@@ -7,3 +7,4 @@ roncare.org/WEB-INF/classes/
 *.DS_Store
 *.swp
 *.out
+/bin

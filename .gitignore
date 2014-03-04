@@ -8,3 +8,4 @@ roncare.org/WEB-INF/classes/
 *.swp
 *.out
 /bin
+.settings/

@@ -2,27 +2,13 @@
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
 
-html,
-button,
-input,
-select,
-textarea {
+html,button,input,select,textarea {
     color: #222;
 }
 
 body {
     font-size: 1em;
     line-height: 1.4;
-}
-
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
 }
 
 hr {
@@ -183,7 +169,6 @@ nav a:hover {
 
     nav a {
         float: left;
-        //width: 27%;
         margin: 0 1.7%;
         padding: 25px 2%;
         margin-bottom: 0;
@@ -232,10 +217,11 @@ nav a:hover {
     }
 
     nav {
-       display:block;position:absolute;right:0;
+       display:block;height:200px;
     }
-    nav#utilitynav {width:300px;}
-    nav#mainnav {width:300px;top:40px;}
+    nav ul {right:45px;position:absolute;width:300px;}
+    nav #utilitynav {}
+    nav #mainnav {top:100px;}
 
 /* ============
     WIDE: Main
@@ -338,61 +324,31 @@ nav a:hover {
         text-shadow: none !important;
     }
 
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
+    a,a:visited {text-decoration: underline;}
 
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
+    a[href]:after { content: " (" attr(href) ")";}
 
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
+    abbr[title]:after {content: " (" attr(title) ")";}
 
     /*
      * Don't show links for images, or javascript/internal links
      */
 
-    .ir a:after,
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-        content: "";
-    }
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {content: "";}
 
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
+    pre, blockquote { border: 1px solid #999;page-break-inside: avoid;}
 
     thead {
         display: table-header-group; /* h5bp.com/t */
     }
 
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
+    tr,img {  page-break-inside: avoid;  }
 
-    img {
-        max-width: 100% !important;
-    }
+    img {  max-width: 100% !important; }
 
-    @page {
-        margin: 0.5cm;
-    }
+    @page { margin: 0.5cm;}
 
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
+    p,h2,h3 { orphans: 3;  widows: 3; }
 
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+    h2, h3 {  page-break-after: avoid; }
 }

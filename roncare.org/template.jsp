@@ -16,13 +16,13 @@
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">h1.title</h1>
+                <h1 class="title">RonCare</h1>
                 <nav>
-                	<ul>
+                	<ul id="utilitynav">
                 		 <li><a href="#">Log in</a></li>
                         <li><a href="#">Sign up</a></li>
                 	</ul>
-                    <ul>
+                    <ul id="mainnav">
                         <li><a href="#">About</a></li>
                         <li><a href="#">Plans</a></li>
                         <li><a href="#">FAQs</a></li>

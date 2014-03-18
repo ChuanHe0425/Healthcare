@@ -1,25 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII"
-	pageEncoding="US-ASCII"%>
 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>RonCare.org</title>
-</head>
-<body>
-	<h1>RonCare</h1>
+<%@include file="includes/header.jsp"%>
+<%@include file="includes/nav.jsp"%>
 
-	<div>
-		<form action="http://localhost:8080/roncare.org/Login" method="post">
-			User Name: <input type="text" name="username" > 
-			Password: <input type="password" name="password" > 
-			<input type="submit" value="Login">
+<div class="main-container">
+	<div class="main wrapper clearfix">
+
+		<h1>RonCare Login</h1>
+
+
+		<form action="/roncare.org/Login" method="POST">
+			<br /> User ID: <input type="text" name="username" size="15" /><br />
+			<br /> Password: <input type="password" name="password" size="15" /><br />
+			<div class="error"><%=error%></div>
+			<div align="center">
+				<p>
+					<input type="submit" value="Login" />
+				</p>
+			</div>
 		</form>
-		<button onclick="location.href = 'http://localhost:8080/roncare.org/register.jsp';" >Register</button>
+
+		Don't have an account yet? Sign up <a href="register.jsp">here</a>.
+
 	</div>
-	
 
+</div>
+<!-- #main -->
+</div>
+<!-- #main-container -->
 
-
-</body>
-</html>
+<%@include file="includes/footer.jsp"%>

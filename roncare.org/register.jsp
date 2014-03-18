@@ -1,33 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Insert title here</title>
-</head>
-<body>
-	<h1>RonCare Registration</h1>
 
-	<div>
-		<form action="http://localhost:8080/roncare.org/Register" method="post">
-			
-			User Name: <input type="text" name="username" > 
-			<br>
-			<br>
-			Password: <input type="password" name="password" >
-			<br>
-			Confirm Password: <input type="password" name="confirmPassword" >
-			<br>
-			<br>
-			First Name: <input type="text" name="firstName" >
-			<br>
-			Last Name: <input type="text" name="lastName" >
-			<br>
-			Date of Birth Name: <input type="date" name="dateOfBirth" >
-			<br>
-			<input type="submit" value="Register">
+<%@include file="includes/header.jsp"%>
+<%@include file="includes/nav.jsp"%>
+
+<div class="main-container">
+	<div class="main wrapper clearfix">
+
+		Already have an account? Sign in <a href="welcome.jsp">here.</a>
+		<div class="error">${error}</div>
+
+		<form action="Register" method="post">
+			<h2>Registration</h2>
+
+			Email: <input type="text" name="email" /> <br /> <br /> Password:
+			<input type="password" name="password"> <br /> Confirm
+			Password: <input type="password" name="confirmPassword"> <br />
+			<br /> First Name: <input type="text" name="firstName"> <br />
+			Last Name: <input type="text" name="lastName"> <br /> Date
+			of Birth: <input type="date" name="dateOfBirth"> <br /> <br />
+			<div align="center">
+				<input type="submit" value="Register">
+			</div>
 		</form>
-	</div>
 
-</body>
-</html>
+	</div>
+	<!-- #main -->
+</div>
+<!-- #main-container -->
+
+<%@include file="includes/footer.jsp"%>

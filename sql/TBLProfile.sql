@@ -1,7 +1,7 @@
 CREATE TABLE 'TBLProfile' (
   'user_id' int(11) NOT NULL AUTO_INCREMENT,
   'ssn' varchar(256) DEFAULT NULL,
-  'dob' timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  'dob' varchar(256), 
   'customer_type_id' int(11) DEFAULT NULL,
   'plan_id' int(11) DEFAULT NULL,
   'retired' int(11) DEFAULT NULL,

@@ -9,8 +9,10 @@
 
 
 		<form action="/roncare.org/Login" method="POST">
-			<br /> User ID: <input type="text" name="username" size="15" /><br />
-			<br /> Password: <input type="password" name="password" size="15" /><br />
+			<label for="userID">User ID:</label>
+			<input type="text" name="username" size="15" id="userID"/>
+			<label for="password">Password:</label>
+			<input type="password" name="password" size="15" id="password"/><br />
 			<div class="error"><%=error%></div>
 			<div align="center">
 				<p>

@@ -11,12 +11,18 @@
 		<form action="Register" method="post">
 			<h2>Registration</h2>
 
-			Email: <input type="text" name="email" /> <br /> <br /> Password:
-			<input type="password" name="password"> <br /> Confirm
-			Password: <input type="password" name="confirmPassword"> <br />
-			<br /> First Name: <input type="text" name="firstName"> <br />
-			Last Name: <input type="text" name="lastName"> <br /> Date
-			of Birth: <input type="date" name="dateOfBirth"> <br /> <br />
+			<label for="email">Email:</label> 
+			<input type="text" name="email" id="email"/>
+			<label for="password">Password:</label>
+			<input type="password" name="password" id="password">
+			<label for="confirmPassword">Confirm Password:</label>
+			<input type="password" name="confirmPassword" id="confirmPassword"> 
+			<label for="firstName">First name:</label>
+			<input type="text" name="firstName" id="firstName">
+			<label for="lastName">Last Name:</label>
+			<input type="text" name="lastName">
+			<label for="dateOfBirth">Date of Birth:</label>
+			<input type="date" name="dateOfBirth" id="dateOfBirth">
 			<div align="center">
 				<input type="submit" value="Register">
 			</div>

@@ -124,6 +124,19 @@
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
                resourceName="UserDatabase"/>
       </Realm>
+      
+      <Realm 
+          className="org.apache.catalina.realm.JDBCRealm" 
+          connectionURL="jdbc:mysql://localhost/roncare" 
+          connectionName="root"
+          connectionPassword="root" 
+          driverName="com.mysql.jdbc.Driver"
+          roleNameCol="RoleName" 
+          userCredCol="UserPassword" 
+          userNameCol="EmailAddress"
+          userRoleTable="roncare.TBLUserRole"
+          userTable="roncare.TBLCustomer" 
+       	  digest="SHA-512" />
 
       <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">

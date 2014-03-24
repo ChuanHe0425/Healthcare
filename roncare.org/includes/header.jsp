@@ -10,11 +10,11 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
 
-<link rel="stylesheet" href="css/normalize.min.css">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/normalize.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 
-<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-<script src="js/vendor/jquery-1.10.1.min..js"></script>
+<script src="${pageContext.request.contextPath}/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/vendor/jquery-1.10.1.min.js"></script>
 
 <%
 	String error = (String) request.getAttribute("error");

@@ -1,8 +1,0 @@
-CREATE TABLE IF NOT EXISTS `TBLGender` (
-	`GenderID` int(11) NOT NULL AUTO_INCREMENT,
-	`Gender` text NOT NULL,
-	PRIMARY KEY (`GenderID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO TBLGender (Gender)
-VALUES ('Female'), ('Male');

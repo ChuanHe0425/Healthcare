@@ -1,6 +1,5 @@
-
-<%@include file="includes/header.jsp"%>
-<%@include file="includes/nav.jsp"%>
+<%@include file="/includes/header.jsp"%>
+<%@include file="/includes/nav.jsp"%>
 
 <div class="main-container">
 	<div class="main wrapper clearfix">
@@ -8,7 +7,7 @@
 		Already have an account? Sign in <a href="welcome.jsp">here.</a>
 		<div class="error">${error}</div>
 
-		<form action="Register" method="post">
+		<form action="${pageContext.request.contextPath}/Register" method="post">
 			<h2>Registration</h2>
 
 			<label for="email">Email:</label> 
@@ -33,4 +32,4 @@
 </div>
 <!-- #main-container -->
 
-<%@include file="includes/footer.jsp"%>
+<%@include file="/includes/footer.jsp"%>

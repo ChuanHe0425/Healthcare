@@ -1,4 +1,4 @@
-package org.roncare.webapp;
+package org.roncare.servlets;
 
 import java.io.IOException;
 import java.sql.ResultSet;

@@ -42,6 +42,10 @@ public class InputValidationTest {
 	}
 */
 	@Test
+	public void InputValidation_Init()	{
+		new InputValidation();
+	}
+	@Test
 	public void validateEmail_localAndDomain_valid()	{
 		assertTrue(InputValidation.validateEmail("test@test.com"));
 	}

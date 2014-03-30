@@ -1,6 +1,5 @@
 CREATE TABLE TBLCredential (
   `credential_id` int(11) NOT NULL AUTO_INCREMENT,
-  `password` varchar(256) DEFAULT NULL,
   `email` varchar(256) DEFAULT NULL,
   `representative_id` int(11) DEFAULT NULL,
   `applicant_id` int(11) DEFAULT NULL,

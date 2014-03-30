@@ -13,6 +13,7 @@ CREATE TABLE TBLApplicant (
   'dob' varchar(256), 
   'plan_id' int(11) DEFAULT NULL,
   'gender_id' int(11) DEFAULT NULL,
+  'password' varchar(256) DEFAULT NULL,
   PRIMARY KEY ('applicant_id'),
   KEY 'fk_gender' ('gender_id'),
   KEY 'fk_plan_profile' ('plan_id'),

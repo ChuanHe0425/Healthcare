@@ -16,7 +16,7 @@ CREATE TABLE TBLApplicant (
   'password' varchar(256) DEFAULT NULL,
   PRIMARY KEY ('applicant_id'),
   KEY 'fk_gender' ('gender_id'),
-  KEY 'fk_plan_profile' ('plan_id'),
+  KEY 'fk_plan_id' ('plan_id'),
   CONSTRAINT 'fk_gender' FOREIGN KEY ('gender_id') REFERENCES 'TBLGender' ('gender_id'),
   CONSTRAINT 'fk_plan' FOREIGN KEY ('plan_id') REFERENCES 'TBLInsurancePlan' ('plan_id')
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

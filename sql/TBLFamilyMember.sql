@@ -1,4 +1,4 @@
-CREATE TABLE `TBLFamilyMember` (
+CREATE TABLE IF NOT EXISTS `TBLFamilyMember` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `FirstName` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `LastName` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,

@@ -4,7 +4,7 @@
 <div class="main-container">
 	<div class="main wrapper clearfix">
 
-		Already have an account? Sign in <a href="welcome.jsp">here.</a>
+		Already have an account? Sign in <a href="${pageContext.request.contextPath}/account/LoginServlet">here.</a>
 		<div class="error">${error}</div>
 
 		<form action="${pageContext.request.contextPath}/Register" method="post">

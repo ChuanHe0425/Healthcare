@@ -72,13 +72,13 @@ public class Register extends HttpServlet {
 
 		if (!dao.addCustomer(c))
 		{
-			request.setAttribute("error", "SQL error");
+			request.setAttribute("error", "Failed to Register");
 			request.getRequestDispatcher("/register.jsp").forward(request, response);
 			return;
 		}
 
 		request.setAttribute("customer", c);
 		request.getSession().setAttribute("currentUser", c.getEmail());
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/acc/successful_reg.jsp").forward(request, response);
 	}
 }

@@ -49,7 +49,7 @@
 				<input type="text" name="ssn" id="ssn" size="9" maxlength="9" value="${user.ssn}">
 			<label for="phone">Phone Number [No Dashes]:</label>
 				<input type="text" name="phone" id="phone" size="10" maxlength="10" value="${user.phoneNum}">
-			<label for="cell">Social Security Number [No Dashes]:</label>
+			<label for="cell">Cell Phone Number [No Dashes]:</label>
 				<input type="text" name="cell" id="cell" size="10" maxlength="10" value="${user.cellNum}">
 			<br>
 			<Button type="submit" name="action" value="change_info">Change Info</button>

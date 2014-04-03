@@ -11,7 +11,7 @@ public class CustomerDAO extends DatabaseConnection
 	private static final String GET_CUSTOMER = "SELECT * FROM TBLCustomer WHERE EmailAddress=?";
 	private static final String INSERT_CUSTOMER = "INSERT INTO TBLCustomer (FirstName, LastName, EmailAddress, UserPassword) VALUES (?,?,?,?)";
 	private static final String INSERT_ROLE = "INSERT INTO TBLUserRole (EmailAddress, RoleName) VALUES (?,?)";
-	private static final String CHANGE_PASSWORD = "UPDATE TBLCustomer SET UserPassword = ? WHERE UserEmail = ?;";
+	private static final String CHANGE_PASSWORD = "UPDATE TBLCustomer SET UserPassword = ? WHERE EmailAddress = ?;";
 	private static final String CHANGE_PERSONAL_INFO = "UPDATE TBLCustomer SET FirstName = ?, LastName= ?, StreetNo = ?, StreetName = ?, City = ?, States = ?, Zip = ?, SSN = ?, PhoneNumber = ?, CellPhoneNumber = ? WHERE EmailAddress = ?;";
 	
 	

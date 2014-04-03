@@ -6,11 +6,11 @@
 		</h1>
 		<nav>
 			<ul id="mainnav">
-				<li><a href="#">Plans</a></li>
+				<li><a href="${pageContext.request.contextPath}/plans/">Plans</a></li>
 				<!-- 
-				<li><a href="#">FAQs</a></li>
+				<li><a href="${pageContext.request.contextPath}/faqs/">FAQs</a></li>
 				 -->
-				<li><a href="#">Apply</a></li>
+				<li><a href="${pageContext.request.contextPath}/apply/">Apply</a></li>
 				
 				
 				<% if (request.getRemoteUser() != null) { %>

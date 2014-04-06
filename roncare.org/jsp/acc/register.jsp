@@ -7,7 +7,7 @@
 		Already have an account? Sign in <a href="${pageContext.request.contextPath}/account/LoginServlet">here.</a>
 		<div class="error">${error}</div>
 
-		<form action="${pageContext.request.contextPath}/Register" method="post">
+		<form onsubmit="return validateRegister();" action="${pageContext.request.contextPath}/Register" method="post">
 			<h2>Registration</h2>
 
 			<label for="email">Email:</label> 
@@ -19,7 +19,7 @@
 			<label for="firstName">First name:</label>
 			<input type="text" name="firstName" id="firstName">
 			<label for="lastName">Last Name:</label>
-			<input type="text" name="lastName">
+			<input type="text" name="lastName" id="lastName">
 			<label for="dateOfBirth">Date of Birth:</label>
 			<input type="date" name="dateOfBirth" id="dateOfBirth">
 			<div align="center">

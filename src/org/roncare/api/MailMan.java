@@ -14,7 +14,6 @@ import javax.mail.internet.MimeMessage;
 
 /*
  * Used code example from: http://www.mkyong.com/java/javamail-api-sending-email-via-gmail-smtp-example/
- * This is a test comment
  */
 public class MailMan {
 	private String username;

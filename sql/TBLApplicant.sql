@@ -1,0 +1,22 @@
+CREATE TABLE TBLApplicant (
+  'applicant_id' int(11) NOT NULL AUTO_INCREMENT,
+  'first_name' varchar(256) DEFAULT NULL,
+  'last_name' varchar(256) DEFAULT NULL,
+  'street_number' varchar(10) DEFAULT NULL,
+  'street_name' varchar(256) DEFAULT NULL,
+  'city' varchar(256) DEFAULT NULL,
+  'state' varchar(2) DEFAULT NULL,
+  'zipcode' varchar(5) DEFAULT NULL,
+  'phone_number' varchar(10) DEFAULT NULL,
+  'email' varchar(256) DEFAULT NULL,
+  'ssn' varchar(256) DEFAULT NULL,
+  'dob' varchar(256), 
+  'plan_id' int(11) DEFAULT NULL,
+  'gender_id' int(11) DEFAULT NULL,
+  'password' varchar(256) DEFAULT NULL,
+  PRIMARY KEY ('applicant_id'),
+  KEY 'fk_gender' ('gender_id'),
+  KEY 'fk_plan_id' ('plan_id'),
+  CONSTRAINT 'fk_gender' FOREIGN KEY ('gender_id') REFERENCES 'TBLGender' ('gender_id'),
+  CONSTRAINT 'fk_plan' FOREIGN KEY ('plan_id') REFERENCES 'TBLInsurancePlan' ('plan_id')
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

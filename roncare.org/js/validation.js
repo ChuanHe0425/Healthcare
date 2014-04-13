@@ -58,3 +58,30 @@ function validateDOB(dob) {
 	var re = /^\d{2}[.\/-]\d{2}[.\/-]\d{4}$/;
 	return re.test(dob);
 }
+
+function validatePostcode(zip) {
+	return zip.length == 5;
+}
+
+function validateSSN(ssn) {
+	return ssn.length == 9;
+}
+
+
+function validatePhone(phone) {
+	return (phone.length == 10 || phone.length == 11);
+}
+
+function validateAge(age) {
+	return (age > 0 && age < 120);
+}
+
+
+function numeralsOnly(evt)
+{
+   var charCode = (evt.which) ? evt.which : event.keyCode;
+   if (charCode > 31 && (charCode < 48 || charCode > 57))
+      return false;
+
+   return true;
+}

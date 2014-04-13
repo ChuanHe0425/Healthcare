@@ -7,11 +7,10 @@
 <%@include file="/includes/nav.jsp"%>
 
 <div class="main-container">
-	<div class="main wrapper clearfix">
-		<%@include file="/includes/profile_menu.jsp"%>
+	<div class="main wrapper clearfix">		
 		
-		<form action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
-			<h2>Change Personal Info</h2>
+		<form id="profile" action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
+			<h2>Update Personal Info</h2>
 			
 			<% 
 				if (session.getAttribute("InfoChngMsg") != null) 
@@ -26,15 +25,15 @@
 			%>
 			
 			<label for="firstName">First Name:</label>
-				<input type="text" name="firstName" id="firstName" value="${user.firstName}">
+				<input type="text" name="firstName" id="firstName" value="${user.firstName}"> <br/>
 			<label for="lastName">Last Name:</label>
-				<input type="text" name="lastName" id="lastName" value="${user.lastName}">
+				<input type="text" name="lastName" id="lastName" value="${user.lastName}"> <br/>
 			<label for="streetNo">Street Number:</label>
-				<input type="text" name="streetNo" id="streetNo" value="${user.streetNo}">
+				<input type="text" name="streetNo" id="streetNo" value="${user.streetNo}" onkeypress="return numeralsOnly(event)"> <br/>
 			<label for="streetName">Street Name:</label>
-				<input type="text" name="streetName" id="streetName" value="${user.streetName}">
+				<input type="text" name="streetName" id="streetName" value="${user.streetName}"> <br/>
 			<label for="city">City:</label>
-				<input type="text" name="city" id="city" value="${user.city}">
+				<input type="text" name="city" id="city" value="${user.city}"> <br/>
 			
 			<!-- Not working must revisit -->
 			<label for="state">State:</label>
@@ -42,17 +41,17 @@
 					<c:forEach var="selectState" items="${states}">
 						<option value="${selectState.id}" ${selectState.selected == true ? 'selected' : ''}>${selectState.abbrevName}</option>
 					</c:forEach>
-				</select>
+				</select> <br/>
 			<label for="zip">Postal Code:</label>
-				<input type="text" name="zip" id="zip" size="9" maxlength="9" value="${user.zip}">
-			<label for="ssn">Social Security Number [No Dashes]:</label>
-				<input type="text" name="ssn" id="ssn" size="9" maxlength="9" value="${user.ssn}">
-			<label for="phone">Phone Number [No Dashes]:</label>
-				<input type="text" name="phone" id="phone" size="10" maxlength="10" value="${user.phoneNum}">
-			<label for="cell">Cell Phone Number [No Dashes]:</label>
-				<input type="text" name="cell" id="cell" size="10" maxlength="10" value="${user.cellNum}">
+				<input type="text" name="zip" id="zip" size="9" maxlength="9" value="${user.zip}" onkeypress="return numeralsOnly(event)"> <br/>
+			<label for="ssn">Social Security Number:</label>
+				<input type="text" name="ssn" id="ssn" size="9" maxlength="9" value="${user.ssn}" onkeypress="return numeralsOnly(event)"> <br/>
+			<label for="phone">Phone Number:</label>
+				<input type="text" name="phone" id="phone" size="10" maxlength="10" value="${user.phoneNum}" onkeypress="return numeralsOnly(event)"> <br/>
+			<label for="cell">Cell Phone Number:</label>
+				<input type="text" name="cell" id="cell" size="10" maxlength="10" value="${user.cellNum}" onkeypress="return numeralsOnly(event)">
 			<br>
-			<Button type="submit" name="action" value="change_info">Change Info</button>
+			<Button type="submit" name="action" value="change_info">Update Info</button>
 		</form>
 
 	</div>

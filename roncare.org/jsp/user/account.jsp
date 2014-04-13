@@ -3,8 +3,7 @@
 
 
 <div class="main-container">
-	<div class="main wrapper clearfix">
-		<%@include file="/includes/profile_menu.jsp"%>
+	<div class="main wrapper clearfix">		
 		
 		<form action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
 			<h2>Change Your Password</h2>

@@ -8,7 +8,6 @@
 
 <div class="main-container">
 	<div class="main wrapper clearfix">
-		<%@include file="/includes/profile_menu.jsp"%>
 		
 		<h2>List Of Family Members</h2>
 		<% 
@@ -46,7 +45,6 @@
 		
 		
 		<form action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
-			<h2>Change Personal Info</h2>
 			
 			<% 
 				if (session.getAttribute("FamilyAddMsg") != null) 
@@ -65,7 +63,7 @@
 			<label for="lastName">Last Name:</label>
 				<input type="text" name="lastName" id="lastName">
 			<label for="age">Age:</label>
-				<input type="text" name="age" id="age">
+				<input type="text" name="age" id="age" onkeypress="return numeralsOnly(event)">
 			
 			<br>
 			<Button type="submit" name="action" value="add_family_member">Add Family Member</button>

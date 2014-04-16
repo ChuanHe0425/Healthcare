@@ -39,10 +39,10 @@ public class InsuranceCompanyDAO extends DatabaseConnection implements Serializa
 				company = new InsuranceCompany();
 				
 				company.setId(rs.getString("insurance_company_id"));
-				company.setName(rs.getString("name"));
+				company.setName(rs.getString("company_name"));
 				company.setCity(rs.getString("city"));
 				company.setState(rs.getString("state"));
-				company.setRepresentative(rs.getString("representative"));
+				company.setRepresentative(rs.getString("representative_name"));
 				
 				System.out.println("{InsuranceCompanyDAO}: Returned Insurance Co - " + company.getName());
 			}

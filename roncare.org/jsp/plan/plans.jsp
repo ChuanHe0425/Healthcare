@@ -32,10 +32,10 @@
 							${plan.insuranceCompany.state}
 						</td>
 						<td>
-							${plan.cost_individual}
+							${plan.costIndividual}
 						</td>
 						<td>
-							${plan.cost_family_zero}
+							${plan.costFamilyZero}
 						</td>
 
 					</tr>

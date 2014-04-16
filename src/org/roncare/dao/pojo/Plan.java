@@ -37,7 +37,7 @@ public class Plan implements Serializable
 		this.cost_individual = cost;
 	}
 	
-	public Double getCostIndividual() {
+	public double getCostIndividual() {
 		return this.cost_individual;
 	}
 

@@ -48,6 +48,7 @@ public class PlanDAO extends DatabaseConnection
 				p.setCostFamilyZero(rs.getDouble("cost_family_zero"));
 				p.setCostFamilyOne(rs.getDouble("cost_family_one"));
 				p.setCostFamilyMore(rs.getDouble("cost_family_more"));
+				
 				plans.add(p);
 			}
 		} 

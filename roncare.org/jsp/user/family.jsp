@@ -6,16 +6,17 @@
 <%@include file="/includes/header.jsp"%>
 <%@include file="/includes/nav.jsp"%>
 
-<div class="main-container">
-	<div class="main wrapper clearfix">
-		
-		<h2>List Of Family Members</h2>
+<div class="grid">
+	
+	
+	<div class="col_6 column">	
+		<h4>List Of Family Members</h4>
 		<% 
 				if (session.getAttribute("FamilyRemvoceMsg") != null) 
 				{
 			%>
 			
-			<h3>Error: <%= session.getAttribute("FamilyRemvoceMsg") %></h3>
+			<h5>Error: <%= session.getAttribute("FamilyRemvoceMsg") %></h5>
 			
 			<%
 				session.removeAttribute("FamilyRemvoceMsg");
@@ -23,25 +24,43 @@
 			%>
 		
 		<table>
-			<c:forEach var="selectMember" items="${family}">
+			<thead>
 				<tr>
-					<td>
-						${selectMember.lastName}, ${selectMember.firstName} 
-					</td>
-					<td>
-						<form action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
-							<input type="hidden" name="id" id="id" value="${selectMember.id}">
-							<Button type="submit" name="action" value="remove_family_member">Remove Family Member</button>
-						</form>
-					</td>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Age</td>
+					<td>Action</td>
 				</tr>
-			</c:forEach>
+			</thead>
+			<tbody>
+				<c:forEach var="selectMember" items="${family}">
+					<tr>
+						<td>
+							${selectMember.firstName}
+						</td>
+						<td>
+							${selectMember.lastName} 
+						</td>
+						<td>
+							${selectMember.age} 
+						</td>
+						<td>
+							<form action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
+								<input type="hidden" name="id" id="id" value="${selectMember.id}">
+								<button class="small" type="submit" name="action" value="remove_family_member">
+									<i class="icon-minus-sign icon-normal" style="color:blue"></i>
+								</button>
+							</form>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
 		
 		<br>
 		<br>
 		
-		<h2>Add Family Member</h2>
+		<h4>Add Family Member</h4>
 		
 		
 		<form action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
@@ -57,21 +76,37 @@
 				session.removeAttribute("FamilyAddMsg");
 				}
 			%>
-			
-			<label for="firstName">First Name:</label>
+			<div class="input_field_inline">
+				<label class="col_4 column" for="firstName">First Name:</label>
 				<input type="text" name="firstName" id="firstName">
-			<label for="lastName">Last Name:</label>
+			</div>
+			<div class="input_field_inline">
+				<label class="col_4 column" for="lastName">Last Name:</label>
 				<input type="text" name="lastName" id="lastName">
-			<label for="age">Age:</label>
+			</div>
+			<div class="input_field_inline">
+				<label class="col_4 column" for="age">Age:</label>
 				<input type="text" name="age" id="age" onkeypress="return numeralsOnly(event)">
+			</div>
 			
 			<br>
-			<Button type="submit" name="action" value="add_family_member">Add Family Member</button>
+			<Button class="green" type="submit" name="action" value="add_family_member">
+				Add Family Member
+			</button>
 		</form>
-
+		<br>
 	</div>
-	<!-- #main -->
+	
+	
+	
+	<div class="col_6 column">
+		Add some text here!!
+	</div>
+	
+	
 </div>
-<!-- #main-container -->
 
+<!-- TO CLEAR OUT FLOATS -->
+<div class="clear"></div>
+	
 <%@include file="/includes/footer.jsp"%>

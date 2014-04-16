@@ -2,8 +2,8 @@
 <%@include file="/includes/nav.jsp"%>
 
 
-<div class="main-container">
-	<div class="main wrapper clearfix">		
+<div class="grid">
+	<div class="center">		
 		
 		<form action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
 			<h2>Change Your Password</h2>
@@ -20,18 +20,24 @@
 				}
 			%>
 			
-			<label for="confirmPassword">Current Password:</label>
+			<div class="input_field_inline">
+				<label class="col_3 column" for="confirmPassword">Current Password:</label>
 				<input type="password" name="confirmPassword" id="confirmPassword">
-			<label for="newPassword">New Password:</label>
+			</div>
+			<div class="input_field_inline">
+				<label class="col_3 column" for="newPassword">New Password:</label>
 				<input type="password" name="newPassword" id="newPassword">
-			<label for="newPassword1">Confirm New Password:</label>
+			</div>
+			<div class="input_field_inline">
+				<label class="col_3 column" for="newPassword1">Confirm New Password:</label>
 				<input type="password" name="newPassword1" id="newPassword1">
-			<Button type="submit" name="action" value="change_password">Change Password</button>
+			</div>
+			<br>
+			<Button class="green" type="submit" name="action" value="change_password">Change Password</button>
 		</form>
-		
+		<br>
 	</div>
-	<!-- #main -->
+	
 </div>
-<!-- #main-container -->
 
 <%@include file="/includes/footer.jsp"%>

@@ -4,10 +4,10 @@ public class InsuranceCompany
 {
 	private String id;
 	private String name;
-	private String street;
 	private String city;
 	private String state;
-	private String postalcode;
+	private String representative;
+	
 	public String getId() {
 		return id;
 	}
@@ -20,12 +20,7 @@ public class InsuranceCompany
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getStreet() {
-		return street;
-	}
-	public void setStreet(String street) {
-		this.street = street;
-	}
+	
 	public String getCity() {
 		return city;
 	}
@@ -38,11 +33,12 @@ public class InsuranceCompany
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getPostalcode() {
-		return postalcode;
+	
+	public String getRepresentative() {
+		return representative;
 	}
-	public void setPostalcode(String postalcode) {
-		this.postalcode = postalcode;
+	public void setRepresentative(String rep) {
+		this.representative = rep;
 	}
 	
 }

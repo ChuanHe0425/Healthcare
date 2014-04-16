@@ -3,9 +3,13 @@ package org.roncare.dao.pojo;
 public class Plan 
 {
 	private String id;
-	private State state;
-	private String plan;
+	private String name;
+	private double cost_individual;
+	private double cost_family_zero;
+	private double cost_family_one;
+	private double cost_family_more;
 	private InsuranceCompany insuranceCompany;
+	
 	
 	public String getId() {
 		return id;
@@ -13,18 +17,45 @@ public class Plan
 	public void setId(String id) {
 		this.id = id;
 	}
-	public State getState() {
-		return state;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setState(State state) {
-		this.state = state;
+	
+	public String getName() {
+		return this.name;
 	}
-	public String getPlan() {
-		return plan;
+	
+	public void setCostIndividual(double cost) {
+		this.cost_individual = cost;
 	}
-	public void setPlan(String plan) {
-		this.plan = plan;
+	
+	public Double getCostIndividual() {
+		return this.cost_individual;
 	}
+
+	public void setCostFamilyZero(double cost) {
+		this.cost_family_zero = cost;
+	}
+	
+	public Double getCostFamilyZero() {
+		return this.cost_family_zero;
+	}
+	public void setCostFamilyOne(double cost) {
+		this.cost_family_one = cost;
+	}
+	
+	public Double getCostFamilyOne() {
+		return this.cost_family_one;
+	}
+	public void setCostFamilyMore(double cost) {
+		this.cost_family_more = cost;
+	}
+	
+	public Double getCostFamilyMore() {
+		return this.cost_family_more;
+	}
+	
 	public InsuranceCompany getInsuranceCompany() {
 		return insuranceCompany;
 	}

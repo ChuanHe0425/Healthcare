@@ -34,9 +34,14 @@ public class PlanServlet extends HttpServlet
 		} else {
 			// return all plants
 			List<Plan> plans = new PlanDAO().getAllPlans();
-			req.getSession().setAttribute("plans", plans);
 			
-			req.getRequestDispatcher("/jsp/user/account.jsp").forward(req, resp);
+			if (plans.isEmpty()) {
+				req.getRequestDispatcher("/jsp/acc/login.jsp").forward(req, resp);
+			}
+			
+			req.setAttribute("plans", plans);
+			
+			req.getRequestDispatcher("/jsp/plan/plans.jsp").forward(req, resp);
 		}
 	}
 }

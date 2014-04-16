@@ -23,10 +23,10 @@ public class PlanDAO extends DatabaseConnection
 {
 	private final static String SELECT_ALL_PLANS = "SELECT * FROM TBLInsurancePlan";
 	
-	public List<Plan> getAllPlans() {
+	public ArrayList<Plan> getAllPlans() {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		List<Plan> plans = new ArrayList<Plan>();
+		ArrayList<Plan> plans = new ArrayList<Plan>();
 		
 		try 
 		{

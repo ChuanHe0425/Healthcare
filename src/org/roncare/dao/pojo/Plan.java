@@ -1,7 +1,14 @@
 package org.roncare.dao.pojo;
 
-public class Plan 
+import java.io.Serializable;
+
+public class Plan implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String id;
 	private String name;
 	private double cost_individual;

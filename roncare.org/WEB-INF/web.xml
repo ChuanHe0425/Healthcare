@@ -56,6 +56,7 @@
     <servlet-mapping>
         <servlet-name>PlanServlet</servlet-name>
         <url-pattern>/plan/*</url-pattern>
+        <url-pattern>/plans/*</url-pattern>
     </servlet-mapping>
 	
 

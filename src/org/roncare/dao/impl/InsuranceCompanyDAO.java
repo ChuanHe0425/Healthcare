@@ -1,14 +1,18 @@
 package org.roncare.dao.impl;
 
+import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import org.roncare.dao.conn.DatabaseConnection;
-
 import org.roncare.dao.pojo.InsuranceCompany;
 
-public class InsuranceCompanyDAO extends DatabaseConnection {
+public class InsuranceCompanyDAO extends DatabaseConnection implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String GET_COMPANY = "SELECT * FROM TBLInsuranceCompany WHERE insurance_company_id=?";
 	
 	public InsuranceCompanyDAO() {

@@ -3,8 +3,8 @@
 <%@ page import = "java.util.List" %>
 <%@ page import = "java.util.ArrayList" %>
 
-<%@include file="/includes/header.jsp"%>
-<%@include file="/includes/nav.jsp"%>
+<%@ include file="/includes/header.jsp" %>
+<%@ include file="/includes/nav.jsp" %>
 
 <div class="grid">
 
@@ -78,11 +78,6 @@
 			<div class="input_field_inline">
 				<label for="phone">Phone Number:</label>
 				<input type="text" name="phone" id="phone" size="10" maxlength="10" value="${user.phoneNum}" onkeypress="return numeralsOnly(event)"> <br/>
-			</div>
-			
-			<div class="input_field_inline">
-				<label for="cell">Cell Phone Number:</label>
-				<input type="text" name="cell" id="cell" size="10" maxlength="10" value="${user.cellNum}" onkeypress="return numeralsOnly(event)">
 			</div>
 			
 			<br>

@@ -1,3 +1,8 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ page import = "java.util.List" %>
+<%@ page import = "java.util.ArrayList" %>
+
 <%@include file="/includes/header.jsp"%>
 <%@include file="/includes/nav.jsp"%>
 
@@ -7,17 +12,30 @@
 			<table>
 			<thead>
 				<tr>
-					<td>First Nqme</td>
-					<td>Last Name</td>
-					<td>Age</td>
-					<td>Action</td>
+					<td>Insurance Company</td>
+					<td>Plan Name</td>
+					<td>State</td>
+					<td>Individual Cost</td>
+					<td>Family Cost</td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="plan" items="${plans}">
 					<tr>
 						<td>
+							${plan.insuranceCompany.name}
+						</td>
+						<td>
 							${plan.name}
+						</td>
+						<td>
+							${plan.insuranceCompany.state}
+						</td>
+						<td>
+							${plan.cost_individual}
+						</td>
+						<td>
+							${plan.cost_family_zero}
 						</td>
 
 					</tr>

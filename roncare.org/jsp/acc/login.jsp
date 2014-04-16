@@ -1,19 +1,27 @@
 <%@ include file="/includes/header.jsp"%>
 <%@ include file="/includes/nav.jsp"%>
 
-<div class="main-container">
-	<div class="main wrapper clearfix">
+<div class="grid">
+	<div class="center">
 
 		<form method="post" action="j_security_check">
 			
-			<label for="username">Email:</label> 
-				<input id="username" type="text" name="j_username" /><br /> 
-			<label for="password">Password:</label> 
-				<input id="password" type="password" name="j_password" /><br /> 
+			<br>
+			<div class="input_field_inline">
+				<label class="col_2 column" for="username">Email:</label> 
+				<input id="username" type="text" name="j_username" />
+			</div>
+			
+			<div class="input_field_inline">
+				<label class="col_2 column" for="password">Password:</label> 
+				<input id="password" type="password" name="j_password" />
+			</div>
+			<br>
+			
 			<input type="submit" value="Login" /> 
-			<input type="reset" value="Reset" /> <br>
+			<input type="reset" value="Reset" />
 		</form>
-		
+		<br>
 		<a href="${pageContext.request.contextPath}/jsp/acc/register.jsp">Register</a>
 		
 	</div>

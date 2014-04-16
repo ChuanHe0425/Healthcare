@@ -8,11 +8,11 @@ import org.roncare.dao.pojo.Customer;
 
 public class CustomerDAO extends DatabaseConnection
 {
-	private static final String GET_CUSTOMER = "SELECT * FROM TBLCustomer WHERE EmailAddress=?";
-	private static final String INSERT_CUSTOMER = "INSERT INTO TBLCustomer (FirstName, LastName, EmailAddress, UserPassword) VALUES (?,?,?,?)";
+	private static final String GET_CUSTOMER = "SELECT * FROM TBLApplicant WHERE email=?";
+	private static final String INSERT_CUSTOMER = "INSERT INTO TBLApplicant (first_name, last_name, email, password) VALUES (?,?,?,?)";
 	private static final String INSERT_ROLE = "INSERT INTO TBLUserRole (EmailAddress, RoleName) VALUES (?,?)";
-	private static final String CHANGE_PASSWORD = "UPDATE TBLCustomer SET UserPassword = ? WHERE EmailAddress = ?;";
-	private static final String CHANGE_PERSONAL_INFO = "UPDATE TBLCustomer SET FirstName = ?, LastName= ?, StreetNo = ?, StreetName = ?, City = ?, States = ?, Zip = ?, SSN = ?, PhoneNumber = ?, CellPhoneNumber = ? WHERE EmailAddress = ?;";
+	private static final String CHANGE_PASSWORD = "UPDATE TBLApplicant SET password = ? WHERE email = ?;";
+	private static final String CHANGE_PERSONAL_INFO = "UPDATE TBLApplicant SET first_name = ?, last_name= ?, street_number = ?, street_name = ?, city = ?, state = ?, zipcode = ?, ssn = ?, phone_number = ? WHERE email = ?;";
 	
 	
 	public CustomerDAO() 
@@ -41,33 +41,33 @@ public class CustomerDAO extends DatabaseConnection
 			{
 				cust = new Customer();
 				
-				cust.setId(rs.getInt("ID"));
+				cust.setId(rs.getInt("applicant_id"));
 				
-				cust.setUserPassword(rs.getString("UserPassword"));
+				cust.setUserPassword(rs.getString("password"));
 				
-				cust.setFirstName(rs.getString("FirstName"));
-				cust.setLastName(rs.getString("LastName"));
+				cust.setFirstName(rs.getString("first_name"));
+				cust.setLastName(rs.getString("last_name"));
 				
-				cust.setStreetNo(rs.getString("StreetNo"));
-				cust.setStreetName(rs.getString("StreetName"));
-				cust.setCity(rs.getString("City"));
-				cust.setStates(rs.getInt("States"));
+				cust.setStreetNo(rs.getString("street_number"));
+				cust.setStreetName(rs.getString("street_name"));
+				cust.setCity(rs.getString("city"));
+				cust.setStates(rs.getInt("state"));
 				if(rs.wasNull())
 				{
 					cust.setStates(null);
 				}
 				
-				cust.setZip(rs.getString("Zip"));
+				cust.setZip(rs.getString("zipcode"));
 				
-				cust.setDob(rs.getDate("DOB"));
-				cust.setSsn(rs.getString("SSN"));
+				cust.setDob(rs.getDate("dob"));
+				cust.setSsn(rs.getString("ssn"));
 				
-				cust.setPhoneNum(rs.getString("PhoneNumber"));
-				cust.setCellNum(rs.getString("CellPhoneNumber"));
+				cust.setPhoneNum(rs.getString("phone_number"));
+				
 				
 				//Validate if the value was null, 
 				//if it was null it will be set to zero since its a int value which cannot be null
-				cust.setGender(rs.getInt("Gender"));
+				cust.setGender(rs.getInt("gender_id"));
 				if(rs.wasNull())
 				{
 					cust.setGender(null);

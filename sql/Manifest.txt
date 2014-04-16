@@ -1,0 +1,6 @@
+TBLInsuranceCompany.sql
+TBLInsurancePlan.sql
+TBLGender.sql
+TBLApplicant.sql
+TBLFamilyMember.sql
+TBLUserRole.sql

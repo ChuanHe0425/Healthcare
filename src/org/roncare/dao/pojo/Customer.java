@@ -15,7 +15,6 @@ public class Customer
 	private java.util.Date dob;
 	private String ssn;
 	private String phoneNum;
-	private String cellNum; 
 	private Integer gender;
 	public int getId() {
 		return id;
@@ -94,12 +93,6 @@ public class Customer
 	}
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
-	}
-	public String getCellNum() {
-		return cellNum;
-	}
-	public void setCellNum(String cellNum) {
-		this.cellNum = cellNum;
 	}
 	public Integer getGender() {
 		return gender;

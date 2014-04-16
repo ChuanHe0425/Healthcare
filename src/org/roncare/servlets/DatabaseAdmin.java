@@ -68,17 +68,8 @@ public class DatabaseAdmin extends HttpServlet {
 
 		String SQL_PATH = "/srv/sql/";
 		String SQL_DROP_SCHEMA = "DropSchema.sql";
-		String SQL_CUSTOMER = "TBLCustomer.sql";
-		String SQL_GENDER = "TBLGender.sql";
-		String SQL_DCC = "TBLDentalCareCoverage.sql";
-		String SQL_ES = "TBLEmploymentStatus.sql";
-		String SQL_HCC = "TBLHealthCareCoverage.sql";
-		String SQL_INCOME = "TBLIncome.sql";
-		String SQL_IP = "TBLInsurancePlans.sql";
-		String SQL_RACE = "TBLRace.sql";
-		String SQL_SZ = "TBLStatesZips.sql";
-		String SQL_ROLE = "TBLUserRole.sql";
-		String SQL_FAM_MEMB = "TBLFamilyMember.sql";
+		String MANIFEST = "Manifest.txt";
+
 
 		// connect to database
 		// JDBC driver name and database URL
@@ -142,29 +133,20 @@ public class DatabaseAdmin extends HttpServlet {
 			conn.setCatalog(DB_NAME);
 
 			
-			// create tables
-			ret = executeSqlFile(SQL_PATH + SQL_DCC, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_ES, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_HCC, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_INCOME, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_IP, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_RACE, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_SZ, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_GENDER, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_CUSTOMER, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_ROLE, conn);
-			out.write(ret);
-			ret = executeSqlFile(SQL_PATH + SQL_FAM_MEMB, conn);
-			out.write(ret);
+			try {
+				Scanner manifest = new Scanner(new File(SQL_PATH + MANIFEST));
+				while (manifest.hasNext()) {
+					ret = executeSqlFile(SQL_PATH + manifest.next(), conn);
+					out.write(ret);
+				}
+				manifest.close();
+
+			} catch (Exception e) {
+				out.append("FAILED to open file:\n " + MANIFEST);
+				out.append("\n " + e.getMessage() + "\n");
+				return ;
+			}
+
 				
 		}
 		catch (SQLException se) 

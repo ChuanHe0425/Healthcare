@@ -48,9 +48,6 @@
 				<input type="text" name="ssn" id="ssn" size="9" maxlength="9" value="${user.ssn}" onkeypress="return numeralsOnly(event)"> <br/>
 			<label for="phone">Phone Number:</label>
 				<input type="text" name="phone" id="phone" size="10" maxlength="10" value="${user.phoneNum}" onkeypress="return numeralsOnly(event)"> <br/>
-			<label for="cell">Cell Phone Number:</label>
-				<input type="text" name="cell" id="cell" size="10" maxlength="10" value="${user.cellNum}" onkeypress="return numeralsOnly(event)">
-			<br>
 			<Button type="submit" name="action" value="change_info">Update Info</button>
 		</form>
 

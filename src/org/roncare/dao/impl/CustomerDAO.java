@@ -10,7 +10,7 @@ public class CustomerDAO extends DatabaseConnection
 {
 	private static final String GET_CUSTOMER = "SELECT * FROM TBLApplicant WHERE email=?";
 	private static final String INSERT_CUSTOMER = "INSERT INTO TBLApplicant (first_name, last_name, email, password) VALUES (?,?,?,?)";
-	private static final String INSERT_ROLE = "INSERT INTO TBLUserRole (EmailAddress, RoleName) VALUES (?,?)";
+	private static final String INSERT_ROLE = "INSERT INTO TBLUserRole (email, RoleName) VALUES (?,?)";
 	private static final String CHANGE_PASSWORD = "UPDATE TBLApplicant SET password = ? WHERE email = ?;";
 	private static final String CHANGE_PERSONAL_INFO = "UPDATE TBLApplicant SET first_name = ?, last_name= ?, street_number = ?, street_name = ?, city = ?, state = ?, zipcode = ?, ssn = ?, phone_number = ? WHERE email = ?;";
 	
@@ -234,8 +234,7 @@ public class CustomerDAO extends DatabaseConnection
 			ps.setString(7, zip);
 			ps.setString(8, ssn);
 			ps.setString(9, phone);
-			ps.setString(10, cell);
-			ps.setString(11, username);
+			ps.setString(10, username);
 			
 			ps.executeUpdate();
 			conn.commit();

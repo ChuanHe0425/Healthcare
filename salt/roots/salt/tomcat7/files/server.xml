@@ -132,10 +132,10 @@
           connectionPassword="root" 
           driverName="com.mysql.jdbc.Driver"
           roleNameCol="RoleName" 
-          userCredCol="UserPassword" 
-          userNameCol="EmailAddress"
+          userCredCol="password" 
+          userNameCol="email"
           userRoleTable="roncare.TBLUserRole"
-          userTable="roncare.TBLCustomer" 
+          userTable="roncare.TBLApplicant" 
        	  digest="SHA-512" />
 
       <Host name="localhost"  appBase="webapps"

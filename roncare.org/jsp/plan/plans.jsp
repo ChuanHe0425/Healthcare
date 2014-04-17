@@ -7,44 +7,41 @@
 <%@include file="/includes/nav.jsp"%>
 
 
-<div class="main-container">
-	<div class="main wrapper clearfix">
-			<table>
-			<thead>
-				<tr>
-					<td>Insurance Company</td>
-					<td>Plan Name</td>
-					<td>State</td>
-					<td>Individual Cost</td>
-					<td>Family Cost</td>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="plan" items="${plans}">
-					<tr>
-						<td>
-							${plan.insuranceCompany.name}
-						</td>
-						<td>
-							${plan.name}
-						</td>
-						<td>
-							${plan.insuranceCompany.state}
-						</td>
-						<td>
-							${plan.costIndividual}
-						</td>
-						<td>
-							${plan.costFamilyZero}
-						</td>
+<div>
+	<table class="tight sortable">
+	<thead>
+		<tr>
+			<th>Insurance Company</th>
+			<th>Plan Name</th>
+			<th>State</th>
+			<th>Individual Cost</th>
+			<th>Family Cost</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach var="plan" items="${plans}">
+			<tr>
+				<td>
+					${plan.insuranceCompany.name}
+				</td>
+				<td>
+					${plan.name}
+				</td>
+				<td>
+					${plan.insuranceCompany.state}
+				</td>
+				<td>
+					${plan.costIndividual}
+				</td>
+				<td>
+					${plan.costFamilyZero}
+				</td>
 
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
 		
-	</div>
-	<!-- #main -->
 </div>
 <!-- #main-container -->
 

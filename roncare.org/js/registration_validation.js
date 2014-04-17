@@ -1,11 +1,12 @@
 $(document).ready(function()
 {
-	$('#firstName').bind('blur mousedown mouseup focus', function (e) 
+	$('#firstName').bind('blur mousedown mouseup focus change input propertychange', function (e) 
 	{
 		if (validateFirstName($(this).val()))
 		{
 			$(this).attr('class', '');
 			$(this).nextAll().remove();
+			$(this).after('<i class="icon-ok icon-large" style="color:green"></i>');
 		}
 		else
 		{
@@ -16,12 +17,13 @@ $(document).ready(function()
 		}	
 	});
 	
-	$('#lastName').bind('blur mousedown mouseup focus', function (e) 
+	$('#lastName').bind('blur mousedown mouseup focus change input propertychange', function (e) 
 	{
 		if (validateLastName($(this).val()))
 		{
 			$(this).attr('class', '');
 			$(this).nextAll().remove();
+			$(this).after('<i class="icon-ok icon-large" style="color:green"></i>');
 		}
 		else
 		{
@@ -32,12 +34,13 @@ $(document).ready(function()
 		}	
 	});
 	
-	$('#password').bind('blur mousedown mouseup focus', function (e) 
+	$('#password').bind('blur mousedown mouseup focus change input propertychange', function (e) 
 	{
 		if (checkPwdLength($(this).val()))
 		{
 			$(this).attr('class', '');
 			$(this).nextAll().remove();
+			$(this).after('<i class="icon-ok icon-large" style="color:green"></i>');
 		}
 		else
 		{
@@ -48,12 +51,13 @@ $(document).ready(function()
 		}	
 	});
 	
-	$('#confirmPassword').bind('blur mousedown mouseup focus', function (e) 
+	$('#confirmPassword').bind('blur mousedown mouseup focus change input propertychange', function (e) 
 	{
 		if (confirmPwd($(this).val()) && $(this).val() != '')
 		{
 			$(this).attr('class', '');
 			$(this).nextAll().remove();
+			$(this).after('<i class="icon-ok icon-large" style="color:green"></i>');
 		}
 		else
 		{
@@ -64,12 +68,13 @@ $(document).ready(function()
 		}	
 	});
 	
-	$('#email').bind('blur mousedown mouseup focus', function (e) 
+	$('#email').bind('blur mousedown mouseup focus change input propertychange', function (e) 
 	{
 		if (validateEmail($(this).val()))
 		{
 			$(this).attr('class', '');
 			$(this).nextAll().remove();
+			$(this).after('<i class="icon-ok icon-large" style="color:green"></i>');
 		}
 		else
 		{
@@ -79,12 +84,13 @@ $(document).ready(function()
 			$(this).after('<i class="icon-remove-circle icon-large" style="color:red"></i>');
 		}	
 	});
-	$('#dateOfBirth').bind('blur mousedown mouseup focus', function (e) 
+	$('#dateOfBirth').bind('blur mousedown mouseup focus change input propertychange', function (e) 
 	{
 		if (validateEmail($(this).val()))
 		{
 			$(this).attr('class', '');
 			$(this).nextAll().remove();
+			$(this).after('<i class="icon-ok icon-large" style="color:green"></i>');
 		}
 		else
 		{

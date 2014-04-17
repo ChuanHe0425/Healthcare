@@ -14,8 +14,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/kickstart.css" media="all" />
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/vendor/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/validation.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/kickstart.js"></script>

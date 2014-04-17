@@ -9,27 +9,28 @@
 <div class="grid">
 	
 	
-	<div class="col_6 column">	
+	<div class="col_6 column">
+		
 		<h4>List Of Family Members</h4>
 		<% 
-				if (session.getAttribute("FamilyRemvoceMsg") != null) 
-				{
-			%>
-			
-			<h5>Error: <%= session.getAttribute("FamilyRemvoceMsg") %></h5>
-			
-			<%
-				session.removeAttribute("FamilyRemvoceMsg");
-				}
-			%>
+			if (session.getAttribute("FamilyRemvoceMsg") != null) 
+			{
+		%>
 		
-		<table>
+		<h5>Error: <%= session.getAttribute("FamilyRemvoceMsg") %></h5>
+		
+		<%
+			session.removeAttribute("FamilyRemvoceMsg");
+			}
+		%>
+		
+		<table class="tight sortable">
 			<thead>
 				<tr>
-					<td>First Name</td>
-					<td>Last Name</td>
-					<td>Age</td>
-					<td>Action</td>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -95,6 +96,7 @@
 			</button>
 		</form>
 		<br>
+		
 	</div>
 	
 	

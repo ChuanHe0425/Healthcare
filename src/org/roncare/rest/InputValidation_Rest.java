@@ -13,11 +13,13 @@ import org.roncare.api.InputValidation;
 @Path("/inputValidation")
 public class InputValidation_Rest {
 	
+	private InputValidation inputValidation = InputValidation.createInputValidation();
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/email/{param}")
 	public Response validateEmail(@PathParam("param") String email)	{
-		if(	InputValidation.validateEmail(email)	)	{
+		if(	inputValidation.validateEmail(email)	)	{
 			JSONObject obj=new JSONObject();
 			obj.put("msg","Valid Email");
 			  

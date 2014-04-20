@@ -18,12 +18,13 @@ import org.roncare.util.EncryptionUtil;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 2L;
-
+	private InputValidation inputValidation;
 	/**
 	 * Default constructor.
 	 */
 	public Register() 
 	{
+		inputValidation = InputValidation.createInputValidation();
 	}
 
 	/**
@@ -52,7 +53,7 @@ public class Register extends HttpServlet {
 		String confirmPassword = request.getParameter("password");
 		String email = request.getParameter("email");
 
-		if (!InputValidation.validateRegister(email, firstName, lastName,
+		if (!inputValidation.validateRegister(email, firstName, lastName,
 				password, confirmPassword)) {
 			request.setAttribute("error", "Invalid Input");
 			request.getRequestDispatcher("/register.jsp").forward(request,

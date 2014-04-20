@@ -2,6 +2,7 @@ package org.roncare.api;
 
 import static org.junit.Assert.*;
 
+import org.junit.BeforeClass;
 //import java.util.Arrays;
 //import java.util.Collection;
 //
@@ -41,33 +42,36 @@ public class InputValidationTest {
 		assertEquals(expected, InputValidation.validateEmail(email));
 	}
 */
-	@Test
-	public void InputValidation_Init()	{
-		new InputValidation();
+	private static InputValidation inputValidation;
+	
+	@BeforeClass
+	public static void createInputValidation()	{
+		inputValidation = InputValidation.createInputValidation();
 	}
+	
 	@Test
 	public void validateEmail_localAndDomain_valid()	{
-		assertTrue(InputValidation.validateEmail("test@test.com"));
+		assertTrue(inputValidation.validateEmail("test@test.com"));
 	}
 	
 	@Test
 	public void validateEmail_localAndSubDomain_valid()	{
-		assertTrue(InputValidation.validateEmail("test@sub.domain.com"));
+		assertTrue(inputValidation.validateEmail("test@sub.domain.com"));
 	}
 	
 	@Test
 	public void validateEmail_localOnly_invalid()	{
-		assertFalse(InputValidation.validateEmail("test"));
+		assertFalse(inputValidation.validateEmail("test"));
 	}
 	
 	@Test
 	public void validateEmail_domainOnly_invalid()	{
-		assertFalse(InputValidation.validateEmail("@test.com"));
+		assertFalse(inputValidation.validateEmail("@test.com"));
 	}
 	
 	@Test
 	public void validateEmail_empty_invalid()	{
-		assertFalse(InputValidation.validateEmail(""));
+		assertFalse(inputValidation.validateEmail(""));
 	}
 	
 	@Test
@@ -107,26 +111,26 @@ public class InputValidationTest {
 	
 	@Test
 	public void validateRegistration_valid()	{
-		assertTrue(InputValidation.validateRegister("email@email.com", "first", "last", "password", "password"));
+		assertTrue(inputValidation.validateRegister("email@email.com", "first", "last", "password", "password"));
 	}
 	
 	@Test 
 	public void validateRegistration_passwordInvalid_invalid()	{
-		assertFalse(InputValidation.validateRegister("email@email.com", "first", "last", "password", "passwordNoMatch"));
+		assertFalse(inputValidation.validateRegister("email@email.com", "first", "last", "password", "passwordNoMatch"));
 	}
 	
 	@Test 
 	public void validateRegistration_firstNameInvalid_invalid()	{
-		assertFalse(InputValidation.validateRegister("email@email.com", "", "last", "password", "password"));
+		assertFalse(inputValidation.validateRegister("email@email.com", "", "last", "password", "password"));
 	}
 	
 	@Test 
 	public void validateRegistration_lastNameInvalid_invalid()	{
-		assertFalse(InputValidation.validateRegister("email@email.com", "first", "", "password", "password"));
+		assertFalse(inputValidation.validateRegister("email@email.com", "first", "", "password", "password"));
 	}
 	
 	@Test 
 	public void validateRegistration_allInvalid_invalid()	{
-		assertFalse(InputValidation.validateRegister("@test", "", "", "password", "noMatch"));
+		assertFalse(inputValidation.validateRegister("@test", "", "", "password", "noMatch"));
 	}
 }

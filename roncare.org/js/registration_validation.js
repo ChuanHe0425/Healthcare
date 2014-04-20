@@ -68,7 +68,7 @@ $(document).ready(function()
 		}	
 	});
 	
-	$('#email').bind('blur mousedown mouseup focus change input propertychange', function (e) 
+	$('#email').bind('change', function (e) 
 	{
 		if (validateEmail($(this).val()))
 		{
@@ -86,7 +86,7 @@ $(document).ready(function()
 	});
 	$('#dateOfBirth').bind('blur mousedown mouseup focus change input propertychange', function (e) 
 	{
-		if (validateEmail($(this).val()))
+		if (validateDOB($(this).val()))
 		{
 			$(this).attr('class', '');
 			$(this).nextAll().remove();
@@ -114,7 +114,33 @@ function confirmPwd(pwd) {
 function validateEmail(email) 
 {
     var re = /\S+@\S+\.\S+/;
-    return re.test(email);
+    if(!re.test(email))	{
+    	console.log('regex fail');
+    	return false;
+    }
+    
+    var result;
+    $.ajax({
+		type: "GET",
+		async: false,
+		dataType:"json",
+		url: "/roncare.org/rest/inputValidation/email/" + $("#email").val(),
+		success: function(data)	{
+//			$("#email").attr('class', '');
+//			$("#email").nextAll().remove();
+//			$("#email").after('<i class="icon-ok icon-large" style="color:green"></i>');
+			result = true;
+		},
+		error: function(xhr, status, error)	{
+//			$("#email").attr('class', 'error');
+//			//remove icon before inserting it again
+//			$("#email").nextAll().remove();
+//			$("#email").after('<i class="icon-remove-circle icon-large" style="color:red"></i>');
+			result = false;
+		}
+	});
+    
+    return result;
 }
 
 function validateDOB(dob) 

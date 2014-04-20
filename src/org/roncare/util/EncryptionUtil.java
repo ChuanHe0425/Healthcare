@@ -11,6 +11,10 @@ import org.apache.commons.codec.binary.Base64;
 
 public class EncryptionUtil
 {
+	//Must be a multiple of 16 chars
+	private static final String SECRET_CODE = "1235443422343214";
+	private static final String algorithm = "AES";
+		
 	public static String encryptSHA512(String input)
 	{
 		MessageDigest md;
@@ -43,30 +47,28 @@ public class EncryptionUtil
 		
 		return result;
 	}
-
-	//Must be a multiple of 16 chars
-	private static final String SECRET_CODE = 
-		//"code__must__be__multiple__of__16";
-		"123544342234321454343643ggfddfga";
-
+	
+	/*
+	 * Encrypts using AES and with key hard-coded into this class: "SECRET_CODE"
+	 * Encrypted result is base64 encoded for easy DB storage
+	 */
 	public static String encrypt(String value)
 	{
 		if (value == null || value.equals(""))
 		{
 			return null;
 		}
-		
-		String encryptedValueResult = null;
+	
+		String encryptedString = null;
 		
 		try
 		{
-			byte[] byteSecreteKey = Base64.decodeBase64(SECRET_CODE);
-			SecretKeySpec secrteKeySpec = new SecretKeySpec(byteSecreteKey, "AES");
-			Cipher cipher = Cipher.getInstance("AES");
-			cipher.init(Cipher.ENCRYPT_MODE, secrteKeySpec);
+			SecretKeySpec symKey = new SecretKeySpec(SECRET_CODE.getBytes(), algorithm);
+			Cipher cipher = Cipher.getInstance(algorithm);
+			cipher.init(Cipher.ENCRYPT_MODE, symKey);
 			
-			byte[] byteValue = value.getBytes();
-			encryptedValueResult = Base64.encodeBase64String(cipher.doFinal(byteValue));
+			byte[] encryptedValue = cipher.doFinal(value.getBytes());
+			encryptedString = Base64.encodeBase64String(encryptedValue);
 		}
 		catch (Exception e)
 		{
@@ -74,9 +76,13 @@ public class EncryptionUtil
 			e.printStackTrace();
 		}
 
-		return encryptedValueResult;
+		return encryptedString;
 	}
 	
+	/*
+	 * Assumes Encrypted Value was base64 encoded
+	 * Decodes String, then decrypts with AES using the key harded-coded into this class: "SECRET_CODE"
+	 */
 	public static String decrypt(String value)
 	{
 		if (value == null || value.equals(""))
@@ -84,17 +90,16 @@ public class EncryptionUtil
 			return null;
 		}
 		
-		String dencryptedValueResult = null;
+		String decryptedString = null;
 		
 		try
 		{
-			byte[] byteSecreteKey = Base64.decodeBase64(SECRET_CODE);
-			SecretKeySpec secrteKeySpec = new SecretKeySpec(byteSecreteKey, "AES");
-			Cipher cipher = Cipher.getInstance("AES");
-			cipher.init(Cipher.DECRYPT_MODE, secrteKeySpec);
+			SecretKeySpec symKey = new SecretKeySpec(SECRET_CODE.getBytes(), algorithm);
+			Cipher cipher = Cipher.getInstance(algorithm);
+			cipher.init(Cipher.DECRYPT_MODE, symKey);
 			
-			byte[] byteValue = Base64.decodeBase64(value);
-			dencryptedValueResult = new String(cipher.doFinal(byteValue));
+			byte[] decryptedValue = cipher.doFinal(Base64.decodeBase64(value));
+			decryptedString = new String(decryptedValue);
 		}
 		catch (Exception e)
 		{
@@ -102,6 +107,6 @@ public class EncryptionUtil
 			e.printStackTrace();
 		}
 
-		return dencryptedValueResult;
+		return decryptedString;
 	}
 }

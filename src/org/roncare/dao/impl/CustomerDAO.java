@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 
 import org.roncare.dao.conn.DatabaseConnection;
 import org.roncare.dao.pojo.Customer;
+import org.roncare.util.EncryptionUtil;
 
 public class CustomerDAO extends DatabaseConnection
 {
@@ -60,7 +61,9 @@ public class CustomerDAO extends DatabaseConnection
 				cust.setZip(rs.getString("zipcode"));
 				
 				cust.setDob(rs.getDate("dob"));
-				cust.setSsn(rs.getString("ssn"));
+				
+				cust.setSsn(EncryptionUtil.decrypt(rs.getString("ssn")));
+//				cust.setSsn(rs.getString("ssn"));
 				
 				cust.setPhoneNum(rs.getString("phone_number"));
 				
@@ -232,7 +235,7 @@ public class CustomerDAO extends DatabaseConnection
 			ps.setString(5, city);
 			ps.setInt(6, state);
 			ps.setString(7, zip);
-			ps.setString(8, ssn);
+			ps.setString(8, EncryptionUtil.encrypt(ssn));
 			ps.setString(9, phone);
 			ps.setString(10, username);
 			

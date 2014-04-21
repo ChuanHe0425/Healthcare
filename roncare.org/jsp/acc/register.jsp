@@ -7,7 +7,7 @@
 		<blockquote class="small">
 			<p>
 				RonCare.org was created to help you. 
-				Our moto is to help ensure that you are able to cover your medical bills. 
+				Our motto is to help ensure that you are able to cover your medical bills. 
 				Don't live a life of fear when your next emergency bill arrives.
 			</p>
 		</blockquote>

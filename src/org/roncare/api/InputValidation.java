@@ -1,8 +1,5 @@
 package org.roncare.api;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.regex.Pattern;
 
 import org.roncare.dao.impl.CustomerDAO;
@@ -12,9 +9,14 @@ public class InputValidation {
 	private static final Pattern EMAIL_PATTERN = 
 			Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 								+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-	private static final int MIN_PASSWORD_LENGTH = 1;
-	private static final int MIN_FIRSTNAME_LENGTH = 1;
-	private static final int MIN_LASTNAME_LENGTH = 1;
+	private static final Pattern NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9]+$");
+	private static final Pattern DOB_PATTERN = 	Pattern.compile("^\\d{2}[.\\/-]\\d{2}[.\\/-]\\d{4}$");
+	private static final Pattern ZIPCODE_PATTERN = Pattern.compile("^\\d{5}$");
+	private static final Pattern SSN_PATTERN = Pattern.compile("^\\d{9}$");
+	private static final Pattern PHONE_PATTERN = Pattern.compile("^\\d{10,11}$");
+	
+	private static final int MIN_PASSWORD_LENGTH = 6;
+
 	private CustomerDAO customerDAO;
 	
 	private InputValidation()	{
@@ -33,11 +35,11 @@ public class InputValidation {
 	}
 	
 	public static boolean validateFirstName(String firstName)	{
-		return firstName.length() >= MIN_FIRSTNAME_LENGTH;
+		return NAME_PATTERN.matcher(firstName).matches();
 	}
 	
 	public static boolean validateLastName(String lastName)	{
-		return lastName.length() >= MIN_LASTNAME_LENGTH;
+		return NAME_PATTERN.matcher(lastName).matches();
 	}
 	
 	public static boolean validatePassword(String password, String confirmPassword)	{
@@ -49,5 +51,25 @@ public class InputValidation {
 				&& validateFirstName(firstName)
 				&& validateLastName(lastName)
 				&& validatePassword(password, confirmPassword);
+	}
+	
+	public static boolean validateDOB(String dob)	{
+		return DOB_PATTERN.matcher(dob).matches();
+	}
+	
+	public static boolean validateZipCode(String zipCode)	{
+		return ZIPCODE_PATTERN.matcher(zipCode).matches();
+	}
+	
+	public static boolean validateSSN(String ssn)	{
+		return SSN_PATTERN.matcher(ssn).matches();
+	}
+	
+	public static boolean validatePhone(String phone)	{
+		return PHONE_PATTERN.matcher(phone).matches();
+	}
+	
+	public static boolean validateAge(int age){
+		return age > 0 && age < 120;
 	}
 }

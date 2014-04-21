@@ -51,12 +51,12 @@ public class InputValidationTest {
 	
 	@Test
 	public void validateEmail_localAndDomain_valid()	{
-		assertTrue(inputValidation.validateEmail("test@test.com"));
+		assertTrue(inputValidation.validateEmail("unregisteredEmail@test.com"));
 	}
 	
 	@Test
 	public void validateEmail_localAndSubDomain_valid()	{
-		assertTrue(inputValidation.validateEmail("test@sub.domain.com"));
+		assertTrue(inputValidation.validateEmail("unregistered@test.subdomain.com"));
 	}
 	
 	@Test
@@ -132,5 +132,63 @@ public class InputValidationTest {
 	@Test 
 	public void validateRegistration_allInvalid_invalid()	{
 		assertFalse(inputValidation.validateRegister("@test", "", "", "password", "noMatch"));
+	}
+	
+	@Test
+	public void validateDOB_valid()	{
+		assertTrue(InputValidation.validateDOB("01.01.2010"));
+		assertTrue(InputValidation.validateDOB("01-01-2010"));
+		assertTrue(InputValidation.validateDOB("01/01/2010"));
+	}
+	
+	@Test
+	public void validateDOB_formatInvalid_invalid()	{
+		assertFalse(InputValidation.validateDOB("01012010"));
+	}
+	
+	@Test
+	public void validateZipCode_value()	{
+		assertTrue(InputValidation.validateZipCode("90210"));
+	}
+	
+	@Test
+	public void validateZipCode_invalidFormat_invalid()	{
+		assertFalse(InputValidation.validateZipCode("a9021"));
+	}
+	
+	@Test
+	public void validateSSN_valid()	{
+		assertTrue(InputValidation.validateSSN("123121234"));
+	}
+	
+	@Test
+	public void validateSSN_invalidFormat_invalid()	{
+		assertFalse(InputValidation.validateSSN("123"));
+	}
+	
+	@Test	
+	public void validatePhone()	{
+		assertTrue(InputValidation.validatePhone("15553334444"));
+		assertTrue(InputValidation.validatePhone("5553334444"));
+	}
+	
+	@Test
+	public void validatePhone_invaidFormat_invalid()	{
+		assertFalse(InputValidation.validatePhone("123213"));
+	}
+	
+	@Test
+	public void validateAge_valid()	{
+		assertTrue(InputValidation.validateAge(50));
+	}
+	
+	@Test
+	public void validateAge_tooOld_invalid()	{
+		assertFalse(InputValidation.validateAge(120));
+	}
+	
+	@Test
+	public void validateAge_tooYoung_invaid()	{
+		assertFalse(InputValidation.validateAge(0));
 	}
 }

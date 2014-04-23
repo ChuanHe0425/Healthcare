@@ -2,6 +2,7 @@ package org.roncare.dao.impl;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
 
 import org.roncare.dao.conn.DatabaseConnection;
 import org.roncare.dao.pojo.Customer;
@@ -10,10 +11,10 @@ import org.roncare.util.EncryptionUtil;
 public class CustomerDAO extends DatabaseConnection
 {
 	private static final String GET_CUSTOMER = "SELECT * FROM TBLApplicant WHERE email=?";
-	private static final String INSERT_CUSTOMER = "INSERT INTO TBLApplicant (first_name, last_name, email, password) VALUES (?,?,?,?)";
+	private static final String INSERT_CUSTOMER = "INSERT INTO TBLApplicant (first_name, last_name, email, password, dob) VALUES (?,?,?,?,?)";
 	private static final String INSERT_ROLE = "INSERT INTO TBLUserRole (email, RoleName) VALUES (?,?)";
 	private static final String CHANGE_PASSWORD = "UPDATE TBLApplicant SET password = ? WHERE email = ?;";
-	private static final String CHANGE_PERSONAL_INFO = "UPDATE TBLApplicant SET first_name = ?, last_name= ?, street_number = ?, street_name = ?, city = ?, state = ?, zipcode = ?, ssn = ?, phone_number = ? WHERE email = ?;";
+	private static final String CHANGE_PERSONAL_INFO = "UPDATE TBLApplicant SET first_name = ?, last_name= ?, street_number = ?, street_name = ?, city = ?, state = ?, zipcode = ?, ssn = ?, phone_number = ?, dob = ? WHERE email = ?;";
 	
 	
 	public CustomerDAO() 
@@ -52,7 +53,7 @@ public class CustomerDAO extends DatabaseConnection
 				cust.setStreetNo(rs.getString("street_number"));
 				cust.setStreetName(rs.getString("street_name"));
 				cust.setCity(rs.getString("city"));
-				cust.setStates(rs.getInt("state"));
+				cust.setStates(rs.getString("state"));
 				if(rs.wasNull())
 				{
 					cust.setStates(null);
@@ -60,7 +61,9 @@ public class CustomerDAO extends DatabaseConnection
 				
 				cust.setZip(rs.getString("zipcode"));
 				
-				cust.setDob(rs.getDate("dob"));
+				cust.setDob(rs.getString("dob"));
+				
+				System.out.println("samir - dob " + cust.getDob() );
 				
 				cust.setSsn(EncryptionUtil.decrypt(rs.getString("ssn")));
 //				cust.setSsn(rs.getString("ssn"));
@@ -128,6 +131,7 @@ public class CustomerDAO extends DatabaseConnection
 			ps.setString(2, c.getLastName());
 			ps.setString(3, c.getEmail());
 			ps.setString(4, c.getUserPassword());
+			ps.setString(5, c.getDob());
 			
 			ps.addBatch();
 			ps.executeBatch();
@@ -216,8 +220,8 @@ public class CustomerDAO extends DatabaseConnection
 	
 	public boolean updatePersonalInfo(
 		String username, String firstName, String lastName, String streetNo,
-		String streetName, String city, Integer state, String zip, String ssn,
-		String phone, String cell)
+		String streetName, String city, String state, String zip, String ssn,
+		String phone, String cell, String dob)
 	{
 		boolean processed = false;
 		
@@ -233,11 +237,12 @@ public class CustomerDAO extends DatabaseConnection
 			ps.setString(3, streetNo);
 			ps.setString(4, streetName);
 			ps.setString(5, city);
-			ps.setInt(6, state);
+			ps.setString(6, state);
 			ps.setString(7, zip);
 			ps.setString(8, EncryptionUtil.encrypt(ssn));
 			ps.setString(9, phone);
 			ps.setString(10, username);
+			ps.setString(11, dob);
 			
 			ps.executeUpdate();
 			conn.commit();

@@ -15,7 +15,7 @@
 
 	<div class="col_6 column">		
 		
-		<form id="profile" action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
+		<form action="${pageContext.request.contextPath}/useraccount/AccountServlet" method="post">
 			<h4>Update Personal Info</h4>
 			
 			<% 
@@ -33,55 +33,60 @@
 			
 			<div class="input_field_inline">
 				<label class="col_4 column" for="firstName">First Name:</label>
-				<input type="text" name="firstName" id="firstName" value="${user.firstName}"> <br/>
+				<input type="text" name="firstName" id="firstName" value="${user.firstName}">
 			</div>
+			
+			
 			
 			<div class="input_field_inline">
 				<label class="col_4 column" for="lastName">Last Name:</label>
-				<input type="text" name="lastName" id="lastName" value="${user.lastName}"> <br/>
+				<input type="text" name="lastName" id="lastName" value="${user.lastName}">
 			</div>
 			
 			<div class="input_field_inline">
 				<label class="col_4 column" for="streetNo">Street Number:</label>
-				<input type="text" name="streetNo" id="streetNo" value="${user.streetNo}" onkeypress="return numeralsOnly(event)"> <br/>
+				<input type="text" name="streetNo" id="streetNo" value="${user.streetNo}" onkeypress="return numeralsOnly(event)">
 			</div>
 			
 			<div class="input_field_inline">
 				<label class="col_4 column" for="streetName">Street Name:</label>
-				<input type="text" name="streetName" id="streetName" value="${user.streetName}"> <br/>
+				<input type="text" name="streetName" id="streetName" value="${user.streetName}">
 			</div>
 			
 			<div class="input_field_inline">
-				<label for="city">City:</label>
-				<input type="text" name="city" id="city" value="${user.city}"> <br/>
+				<label class="col_4 column" for="city">City:</label>
+				<input type="text" name="city" id="city" value="${user.city}">
 			</div>
 			
 			<div class="input_field_inline">
-				<label for="state">State:</label>
-				<select name="state" id="state">
-					<c:forEach var="selectState" items="${states}">
-						<option value="${selectState.id}" ${selectState.selected == true ? 'selected' : ''}>${selectState.abbrevName}</option>
-					</c:forEach>
-				</select> <br/>
+				<label class="col_4 column" for="state">State:</label>
+				<input type="text" name="state" id="state" value="${user.states}">
 			</div>
 			
 			<div class="input_field_inline">	
-				<label for="zip">Postal Code:</label>
-				<input type="text" name="zip" id="zip" size="9" maxlength="9" value="${user.zip}" onkeypress="return numeralsOnly(event)"> <br/>
+				<label  class="col_4 column" for="zip">Postal Code:</label>
+				<input type="text" name="zip" id="zip" size="9" maxlength="9" value="${user.zip}" onkeypress="return numeralsOnly(event)">
 			</div>
 			
 			<div class="input_field_inline">
-				<label for="ssn">Social Security Number:</label>
-				<input type="text" name="ssn" id="ssn" size="9" maxlength="9" value="${user.ssn}" onkeypress="return numeralsOnly(event)"> <br/>
+				<label class="col_4 column" for="ssn">Social Security Number:</label>
+				<input type="text" name="ssn" id="ssn" size="9" maxlength="9" value="${user.ssn}" onkeypress="return numeralsOnly(event)">
 			</div>
 			
 			<div class="input_field_inline">
-				<label for="phone">Phone Number:</label>
-				<input type="text" name="phone" id="phone" size="10" maxlength="10" value="${user.phoneNum}" onkeypress="return numeralsOnly(event)"> <br/>
+				<label class="col_4 column" for="dateOfBirth">Date of Birth: (yyyy/mm/dd)</label> 
+				<input type="date" name="dateOfBirth" id="dateOfBirth" value="${user.dob}">
+			</div>
+			
+			<div class="input_field_inline">
+				<label class="col_4 column" for="phone">Phone Number:</label>
+				<input type="text" name="phone" id="phone" size="10" maxlength="10" value="${user.phoneNum}" onkeypress="return numeralsOnly(event)">
 			</div>
 			
 			<br>
-			<Button type="submit" name="action" value="change_info">Update Info</button>
+			<div class="center">
+				<Button class="green" type="submit" name="action" value="change_info">Update Info</button>
+			</div>
 		</form>
 
 	</div>

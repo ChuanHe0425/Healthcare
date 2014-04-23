@@ -3,6 +3,8 @@ package org.roncare.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,9 +54,10 @@ public class Register extends HttpServlet {
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("password");
 		String email = request.getParameter("email");
+		String dob = request.getParameter("dateOfBirth");
 
 		if (!inputValidation.validateRegister(email, firstName, lastName,
-				password, confirmPassword)) {
+				password, confirmPassword, dob)) {
 			request.setAttribute("error", "Invalid Input");
 			request.getRequestDispatcher("/register.jsp").forward(request,
 					response);
@@ -68,6 +71,7 @@ public class Register extends HttpServlet {
 		c.setLastName(lastName);
 		c.setUserPassword(encryptPass);
 		c.setEmail(email);
+		c.setDob(dob);
 
 		CustomerDAO dao = new CustomerDAO();
 

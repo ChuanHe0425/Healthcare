@@ -10,9 +10,9 @@ public class Customer
 	private String streetNo;
 	private String streetName; 
 	private String city;
-	private Integer states;
+	private String states;
 	private String zip;
-	private java.util.Date dob;
+	private String dob;
 	private String ssn;
 	private String phoneNum;
 	private Integer gender;
@@ -64,10 +64,10 @@ public class Customer
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public Integer getStates() {
+	public String getStates() {
 		return states;
 	}
-	public void setStates(Integer states) {
+	public void setStates(String states) {
 		this.states = states;
 	}
 	public String getZip() {
@@ -76,10 +76,10 @@ public class Customer
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	public java.util.Date getDob() {
+	public String getDob() {
 		return dob;
 	}
-	public void setDob(java.util.Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 	public String getSsn() {

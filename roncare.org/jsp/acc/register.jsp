@@ -49,7 +49,7 @@
 			</div>
 
 			<div class="input_field_inline">
-				<label  class="col_4 column" for="dateOfBirth">Date of Birth:</label> 
+				<label  class="col_4 column" for="dateOfBirth">Date of Birth: (yyyy/mm/dd)</label> 
 				<input type="date" name="dateOfBirth" id="dateOfBirth">
 			</div>
 			<br>

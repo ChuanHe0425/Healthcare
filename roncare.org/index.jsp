@@ -10,8 +10,11 @@
 		<h1>RonCare.org</h1>
 		<h2>because Ron cares</h2>
 		
-		<img src="${pageContext.request.contextPath}/img/homepage.jpg">
-		
+		<ul class="slideshow">
+			<li><img src="${pageContext.request.contextPath}/img/homepage.jpg" width="1024" height="686" ></li>
+			<li><img src="${pageContext.request.contextPath}/img/homepage1.jpg" width="1024" height="686" ></li>
+			<li><img src="${pageContext.request.contextPath}/img/homepage2.jpg" width="1024" height="686" ></li>	
+		</ul>
 
 	</div>
 	<!-- #main -->

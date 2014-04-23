@@ -21,8 +21,8 @@
 			%>
 			
 			<div class="input_field_inline">
-				<label class="col_3 column" for="confirmPassword">Current Password:</label>
-				<input type="password" name="confirmPassword" id="confirmPassword">
+				<label class="col_3 column" for="password">Current Password:</label>
+				<input type="password" name="password" id="password">
 			</div>
 			<div class="input_field_inline">
 				<label class="col_3 column" for="newPassword">New Password:</label>

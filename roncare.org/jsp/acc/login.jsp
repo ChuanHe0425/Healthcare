@@ -18,8 +18,8 @@
 			</div>
 			<br>
 			
-			<input type="submit" value="Login" /> 
-			<input type="reset" value="Reset" />
+			<input class="green" type="submit" value="Login" /> 
+			<input class="green" type="reset" value="Reset" />
 		</form>
 		<br>
 		<a href="${pageContext.request.contextPath}/jsp/acc/register.jsp">Register</a>

@@ -7,11 +7,8 @@
 		<div class="navmenu">
 			<ul class="dropdown dropdown-horizontal">
 				<li class="dir"><a href="${pageContext.request.contextPath}/plans/">Plans</a></li>
-				<!-- 
-				<li class="dir"><a href="${pageContext.request.contextPath}/faqs/">FAQs</a></li>
-				 -->
-				<li class="dir"><a href="${pageContext.request.contextPath}/apply/apply.jsp">Apply</a></li>
-				
+				<li class="dir"><a href="${pageContext.request.contextPath}/jsp/faqs">FAQs</a></li>
+				<li class="dir"><a href="${pageContext.request.contextPath}/jsp/contact/">Group Info</a></li>
 				
 				<% if (request.getRemoteUser() != null) { %>
 				<li class="dir"><a href="${pageContext.request.contextPath}/useraccount/account">Profile</a>

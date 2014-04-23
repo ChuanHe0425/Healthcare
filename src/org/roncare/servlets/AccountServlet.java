@@ -1,6 +1,8 @@
 package org.roncare.servlets;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.security.DeclareRoles;
@@ -85,7 +87,7 @@ public class AccountServlet extends HttpServlet
 		
 		if ("change_password".equals(action))
 		{
-			String currentPassword = req.getParameter("confirmPassword");
+			String currentPassword = req.getParameter("password");
 			String newPassword = req.getParameter("newPassword");
 			String newPassword1 = req.getParameter("newPassword1");
 			
@@ -128,24 +130,15 @@ public class AccountServlet extends HttpServlet
 			String ssn = req.getParameter("ssn");
 			String phone = req.getParameter("phone");
 			String cell = req.getParameter("cell");
-			
 			String state = req.getParameter("state");
-			Integer stateInt = null;
-			try
-			{
-				stateInt = Integer.parseInt(state);
-			}
-			catch(Exception e)
-			{
-				System.out.println("{AccountServlet}: State Exception setting to 1");
-				stateInt = 1;
-			}
+			String dob = req.getParameter("dateOfBirth");
 			
+			System.out.println("{AccountServlet}: DOB - " + dob);
 			
 			if (new CustomerDAO().updatePersonalInfo(
-					req.getRemoteUser(), firstName, lastName, streetNo, streetName, city, stateInt, zip, ssn, phone, cell))
+					req.getRemoteUser(), firstName, lastName, streetNo, streetName, city, state, zip, ssn, phone, cell, dob))
 			{
-				System.out.println("{AccountServlet}: Password Changed");
+				System.out.println("{AccountServlet}: Info Changed");
 				addCustomerSessionVariables(req);
 			}
 			else
@@ -242,24 +235,6 @@ public class AccountServlet extends HttpServlet
 	{
 		Customer user = getCustomer(req.getRemoteUser());
 		req.getSession().setAttribute("user", user);
-		
-		List<State> states = getStates();
-		
-		System.out.println("{AccountServlet}: Number of States - " + states.size());
-		
-		if (user.getStates() != null)
-		{
-			for (State state: states)
-			{
-				if (state.getId() == user.getStates())
-				{
-					state.setSelected(true);
-					break;
-				}
-			}
-		}
-		
-		req.setAttribute("states", states);
 	}
 	
 	public void addFamilyMembersSessionVariables(HttpServletRequest req)

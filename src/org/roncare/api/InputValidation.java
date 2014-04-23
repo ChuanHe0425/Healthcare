@@ -10,7 +10,7 @@ public class InputValidation {
 			Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 								+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 	private static final Pattern NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9]+$");
-	private static final Pattern DOB_PATTERN = 	Pattern.compile("^\\d{2}[.\\/-]\\d{2}[.\\/-]\\d{4}$");
+	private static final Pattern DOB_PATTERN = 	Pattern.compile("^\\d{4}[.\\/-]\\d{2}[.\\/-]\\d{2}$");
 	private static final Pattern ZIPCODE_PATTERN = Pattern.compile("^\\d{5}$");
 	private static final Pattern SSN_PATTERN = Pattern.compile("^\\d{9}$");
 	private static final Pattern PHONE_PATTERN = Pattern.compile("^\\d{10,11}$");
@@ -46,11 +46,12 @@ public class InputValidation {
 		return password.length() >= MIN_PASSWORD_LENGTH ? password.equals(confirmPassword) : false;
 	}
 	
-	public boolean validateRegister(String email, String firstName, String lastName, String password, String confirmPassword)	{
+	public boolean validateRegister(String email, String firstName, String lastName, String password, String confirmPassword, String dob)	{
 		return validateEmail(email) 
 				&& validateFirstName(firstName)
 				&& validateLastName(lastName)
-				&& validatePassword(password, confirmPassword);
+				&& validatePassword(password, confirmPassword)
+				&& validateDOB(dob);
 	}
 	
 	public static boolean validateDOB(String dob)	{

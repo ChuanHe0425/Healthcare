@@ -55,6 +55,7 @@ function validateEmail(email)
 }
 
 function validateDOB(dob) {
+	console.log(dob);
 	var re = /^\d{2}[.\/-]\d{2}[.\/-]\d{4}$/;
 	return re.test(dob);
 }

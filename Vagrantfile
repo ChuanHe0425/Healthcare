@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 8000, host: 8000
   
   ## Tomcat port
-  config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 8080, host: 8081
   
   
   ## Set your salt configs here
